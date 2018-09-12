@@ -1,0 +1,61 @@
+//
+//  AppDelegate.m
+//  Xlaunch
+//
+//  Created by Hoan Tran on 9/12/18.
+//  Copyright © 2018 Hoan Tran. All rights reserved.
+//
+
+#import "AppDelegate.h"
+#import "LaunchController.h"
+
+@interface AppDelegate ()
+
+@end
+
+@implementation AppDelegate
+
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // ..............................................................................................
+    // For a simple app such as this one that has a small number of screens,
+    // this common practice of allowing one viewController calling another directly is sufficient and effective.
+    // For a larger app where switching graph between the many controllers are more complex,
+    // a coordinator pattern or the likes would be more appropriate to relieve the routing responsibilities
+    // from the viewControllers onto objects specifically designed for this role.
+    // By separating the routing concerns from the viewControllers, their functions lay mainly in the UI arena,
+    // thus making these objects more maintainable and reusable.
+    // ..............................................................................................
+    
+    LaunchController *controller = [[LaunchController alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:controller];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+}
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+}
+
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+}
+
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+}
+
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+}
+
+
+@end
